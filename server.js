@@ -4,8 +4,10 @@ const app = express();
 
 // Menyajikan file XML saat URL /video/ diakses
 app.get('/video', (req, res) => {
-  // Tentukan lokasi file XML
   const xmlFilePath = path.join(__dirname, 'xml-files', 'video.xml');
+
+  // Menambahkan header Content-Type untuk file XML
+  res.setHeader('Content-Type', 'application/xml');
 
   // Kirim file XML ke client
   res.sendFile(xmlFilePath);
