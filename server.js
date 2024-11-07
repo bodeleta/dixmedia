@@ -1,16 +1,22 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 const app = express();
 
 // Menyajikan file XML saat URL /video/ diakses
 app.get('/video', (req, res) => {
   const xmlFilePath = path.join(__dirname, 'xml-files', 'video.xml');
 
-  // Menambahkan header Content-Type untuk file XML
-  res.setHeader('Content-Type', 'application/xml');
-
-  // Kirim file XML ke client
-  res.sendFile(xmlFilePath);
+  // Cek apakah file ada sebelum mengirimnya
+  fs.exists(xmlFilePath, (exists) => {
+    if (exists) {
+      // Menambahkan header Content-Type untuk file XML
+      res.setHeader('Content-Type', 'application/xml');
+      res.sendFile(xmlFilePath);
+    } else {
+      res.status(404).send('File not found');
+    }
+  });
 });
 
 // Menjalankan server pada port yang diberikan oleh Heroku
