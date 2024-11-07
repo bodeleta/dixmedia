@@ -19,6 +19,20 @@ app.get('/video', (req, res) => {
   });
 });
 
+// Menangani permintaan file lain yang perlu konfigurasi header khusus
+app.get('/another-file', (req, res) => {
+  const anotherFilePath = path.join(__dirname, 'xml-files', 'anotherfile.xml');
+
+  fs.exists(anotherFilePath, (exists) => {
+    if (exists) {
+      res.setHeader('Content-Type', 'application/xml');
+      res.sendFile(anotherFilePath);
+    } else {
+      res.status(404).send('File not found');
+    }
+  });
+});
+
 // Menjalankan server pada port yang diberikan oleh Heroku
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
